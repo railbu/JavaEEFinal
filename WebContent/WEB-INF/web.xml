@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>JavaEEFinal</display-name>
+  
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <filter>
+    <filter-name>struts2</filter-name>
+    <filter-class>
+        org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+    </filter-class>
+  </filter>
+  
+  <filter>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<filter-class>filter.CharacterEncodingFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+  
+  	<filter>
+		<filter-name>hibernateSessionFilter</filter-name>
+		<filter-class>filter.SessionFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>hibernateSessionFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+  
+  	<!-- teacher用户登陆检测 -->
+  	<filter>
+		<filter-name>TeaLoginCheckFilter</filter-name>
+		<filter-class>filter.TeaLoginCheckFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>TeaLoginCheckFilter</filter-name>
+		<url-pattern>/teacher/*</url-pattern>
+	</filter-mapping>
+  	
+  	<!-- Student用户登陆检测 -->
+  	<filter>
+		<filter-name>StuLoginCheckFilter</filter-name>
+		<filter-class>filter.StuLoginCheckFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>StuLoginCheckFilter</filter-name>
+		<url-pattern>/student/*</url-pattern>
+	</filter-mapping>
+  
+  	<!-- visitor用户登陆检测 -->
+  	<filter>
+		<filter-name>VisLoginCheckFilter</filter-name>
+		<filter-class>filter.VisLoginCheckFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>VisLoginCheckFilter</filter-name>
+		<url-pattern>/visitor/*</url-pattern>
+	</filter-mapping>
+	
+	  <filter-mapping>
+	    <filter-name>struts2</filter-name>
+	    <url-pattern>/*</url-pattern>
+	  </filter-mapping>
+	  
+	<listener>
+		<listener-class>listener.SessionListener</listener-class>
+	</listener>
+ 
+</web-app>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- jndi settings -->
+        <property name="connection.datasource">java:comp/env/jdbc/DBUtils</property>
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+        
+        <!-- 配置批量插入属性 -->
+        <property name="hibernate.jdbc.batch_size">100</property>
+        
+        <!-- Enable Hibernate's current session context -->
+        <property name="current_session_context_class">
+        	org.hibernate.context.ManagedSessionContext
+        </property>
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">
+        	org.hibernate.cache.NoCacheProvider
+        </property>
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">false</property>
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+        <mapping class="model.User"/>
+        <mapping class="model.Student"/>
+        <mapping class="model.Teacher"/>
+        <mapping class="model.Visitor"/>
+        <mapping class="model.Homework"/>
+        <mapping class="model.PPT"/>
+        <mapping class="model.Course"/>
+        <mapping class="model.CourseStu"/>
+        <mapping class="model.Photo"/>
+        <mapping class="model.StuCourse"/>
+        <mapping class="model.StuPpt"/>
+        <mapping class="model.TSMessage"/>
+        
+    </session-factory>
+</hibernate-configuration>
+

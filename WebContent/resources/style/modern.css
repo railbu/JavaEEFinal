@@ -1,0 +1,152 @@
+[class*="span"]:after {
+    clear: both;
+}
+[class*="span"]:before, [class*="span"]:after {
+    display: table;
+    content: "";
+}
+.grid .row [class*="span"] {
+    float: left;
+}
+[class*="span"] {
+    float: none;
+    min-height: 1px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+}
+.span5 {
+    width: 420px;
+}
+*, *:after, *:before {
+    -moz-box-sizing: border-box;
+}
+[class*="span"]:after {
+    clear: both;
+}
+[class*="span"]:before, [class*="span"]:after {
+    display: table;
+    content: "";
+}
+.grid .row [class*="span"] {
+    float: left;
+}
+[class*="span"]:last-child {
+    margin-right: 0px;
+}
+.carousel {
+    display: block;
+    position: relative;
+    margin-bottom: 20px;
+}
+[class*="span"] {
+    float: none;
+    min-height: 1px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+}
+.carousel .slides {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.carousel .slides .slide {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+}
+.carousel .control {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    width: 40px;
+    height: 45px;
+    margin-top: -20px;
+    font-size: 48pt;
+    font-weight: 100;
+    line-height: 30px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    cursor: pointer;
+    opacity: 0.75;
+}
+.bg-color-blue {
+    background-color: rgb(45, 137, 239) !important;
+}
+.bg-color-blue {
+    background-color: rgb(45, 137, 239) !important;
+}
+.carousel .control.right {
+    left: auto;
+    right: 15px;
+}
+.carousel .markers li {
+    display: block;
+    float: left;
+    margin-right: 5px;
+}
+.myul{
+    display: list-item;
+    font-size: 14px;
+    line-height: 20px;
+    margin:0px;
+    margin-left:-25px;
+    list-style-type:none;
+    border-bottom:1px solid rgb(232, 232, 232);
+    margin-bottom: -1px;
+	padding: 10px 0px;
+}
+.carousel .slides .slide .description {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    padding: 10px;
+    background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.7);
+    color: rgb(255, 255, 255);
+}
+.carousel .slides .slide.image img {
+    width: 100%;
+    height: 100%;
+}
+img {
+    border: 0px none;
+}
+.ui-icon {
+    display: inline-block;
+    background-repeat: no-repeat;
+    font-size: 0px;
+    overflow: hidden;
+}
+.sp-detail-avatar {
+    width: 16px;
+    height: 16px;
+    background-image: url("../images/profile.32-tyn131226145124.png");
+    background-position: -184px -34px;
+}
+.sp-detail-school {
+    width: 16px;
+    height: 16px;
+    background-image: url("../images/profile.32-tyn131226145124.png");
+    background-position: -201px 0px;
+}
+.sp-detail-honor{
+    width: 16px;
+    height: 16px;
+	background-image:url("../images/profile.32-tyn131226145124.png");
+	background-position:-201px -34px;
+}
+.sp-detail-type{
+    width: 16px;
+    height: 16px;
+	background-image:url("../images/profile.32-tyn131226145124.png");
+	background-position:-218px -51px;
+}
+.ui-icon {
+    display: inline-block;
+    background-repeat: no-repeat;
+    font-size: 0px;
+    overflow: hidden;
+}

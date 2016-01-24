@@ -1,0 +1,119 @@
+@CHARSET "UTF-8";
+
+元素 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: -9;
+    -moz-user-select: none;
+}
+body, p, form, ul, li {
+    list-style: none outside none;
+}
+body {
+	background-color: rgb(155,155,155);
+    font: 12px arial;
+}
+.tang-pass-pop-login div.tang-title-dragable {
+    cursor: move;
+    position: relative;
+}
+.tang-pass-pop-login div.tang-title span {
+    width: auto;
+    height: 46px;
+    line-height: 46px;
+    font-size: 16px;
+    font-family: "宋体";
+    font-weight: bold;
+    color: rgb(51, 51, 51);
+    text-indent: 20px;
+    margin-right: 29px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+.tang-pass-pop-login div.tang-title {
+    background-color: rgb(247, 247, 247);
+    border-style: solid solid none;
+    border-color: rgb(221, 221, 221) rgb(221, 221, 221) -moz-use-text-color;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+    border-width: 1px 1px 0px;
+}
+.tang-pass-pop-login div.tang-title .buttons {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 20px;
+    top: 16px;
+}
+.tang-pass-pop-login div.tang-title a.close-btn {
+    background-image: url("../images/pass_login_icons_8502bf77.png");
+    background-position: -56px -48px;
+}
+.tang-pass-pop-login div.tang-title .buttons a {
+    width: 16px;
+    height: 16px;
+    outline: medium none;
+    display: block;
+    background-repeat: no-repeat;
+    margin: 0px;
+    padding: 0px;
+}
+a {
+    color: rgb(0, 0, 204);
+}
+pass-pop-login {
+    position: absolute;
+}
+.tang-pass-pop-login div.tang-body {
+    background-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+    border-width: 0px 1px 1px;
+}
+.tang-pass-pop-login .tang-body .tang-content {
+}
+.tang-pass-pop-login div.tang-content {
+    border-top: 1px solid rgb(242, 242, 242);
+}
+.tang-pass-pop-login .clearfix:after, .tang-pass-pop-login .pass-form-item:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0px;
+    content: " ";
+    clear: both;
+    height: 0px;
+}
+.tang-pass-pop-login .pass-login-pop-content {
+    width: auto;
+    margin: 0px;
+    padding: 0px;
+}
+.pass-login-pop-content {
+}
+.tang-pass-pop-login .pass-login-pop-form {
+    margin-bottom: 15px;
+}
+.tang-pass-pop-login-noimg .tang-pass-login {
+    padding: 0px 20px;
+}
+.tang-pass-pop-login .tang-pass-login {
+    position: relative;
+    z-index: 18;
+}
+.tang-pass-pop-login .tang-body {
+    position: relative;
+    overflow: visible;
+}

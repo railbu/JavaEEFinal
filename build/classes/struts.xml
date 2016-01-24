@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<!-- 设置struts2文件上传最大值 -->
+	<constant name="struts.multipart.maxSize" value="209715200" />
+	 <!-- 文件上传临时文件保存路径 -->
+ 	<constant name="struts.multipart.saveDir" value="c:\testUp\"></constant>
+ 	<bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest"
+  		name="myRequestParser" class="action.uploadFilePro.MyRequestParseWrapper" scope="default" />
+	<!-- 改成自己定义的文件上传方式 -->
+ 	<constant name="struts.multipart.handler" value="myRequestParser"/>
+	
+	<constant name="struts.custom.i18n.resources" value="messages"/>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+    <constant name="struts.ui.theme" value="simple"/>
+
+    <package name="default" namespace="/" extends="struts-default,json-default">
+
+        <default-action-ref name="index" />
+
+        <global-results>
+            <result name="error">/common/error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+		
+		<action name="lastaction_*" method="{1}"
+			class="action.LastAction">
+            <result name="success">/index.jsp</result>
+        </action>
+		
+        <action name="sregister_*" method="{1}"
+			class="action.SRegisterAction">
+            <result name="success">/common/message.jsp</result>
+            <result name="input">/registerForm.jsp</result>
+        </action>
+        
+        <action name="tregister_*" method="{1}"
+			class="action.TRegisterAction">
+            <result name="success">/common/message.jsp</result>
+            <result name="input">/registerForm.jsp</result>
+        </action>
+        <action name="vregister_*" method="{1}"
+			class="action.VRegisterAction">
+            <result name="success">/common/message.jsp</result>
+            <result name="input">/registerForm.jsp</result>
+        </action>
+        
+        <!-- 注册激活的验证Action -->
+        <action name="ractive_*" method="{1}"
+			class="action.RegActiveAction">
+            <result name="input">/registerInfo.jsp</result>
+            <result name="guoqi">/registerInfo2.jsp</result>
+        </action>
+        
+        <action name="loginscan_*" method="{1}"
+			class="action.LoginScanAction">
+        </action>
+        
+		<action name="login_*" method="{1}"
+			class="action.LoginAction">
+            
+            <!-- 登陆后跳如另外一个ACTION 获取徽章 -->
+             
+            <result name="teaUser">/teacher/teacherHome.jsp</result>
+            <result name="stuUser" type="redirect">/student/home_stuhome.action</result> 
+            <result name="visUser">/visitor/visitorHome.jsp</result>
+            <result name="input">/login.jsp</result>
+        </action>
+        
+        <!-- 为安卓客户端配置action -->
+        <action name="anlogin" method="loginAn"	class="action.LoginAction">
+        	<result type="json"></result>
+        </action>
+        
+        <!-- 为安卓客户端配置action -->
+        <action name="courselist" class="action.student.PPTMaAction" method="listAn">
+        	<result type="json"></result>
+        </action>
+        
+        <!-- 为安卓客户端配置action -->
+        <action name="anPPTmoreInfo" method="moreinfoAn" class="action.student.PPTMaAction">
+        	<result type="json"></result>
+        </action>
+        <!-- 为安卓客户端配置action -->
+        <action name="hworklist" method="listAllAn" class="action.student.HworkAction">
+        	<result type="json"></result>
+        </action>
+        
+          <!-- 为安卓客户端配置action -->
+        <action name="hworkMoreinfoAn" method="moreinfoAn" class="action.student.HworkAction">
+        	<result type="json"></result>
+        </action>
+        
+       <action name="search_*" method="{1}" class="action.SearchAction">
+            <result name="success">/searchResult.jsp</result>
+            <result name="present">/presentPPT.jsp</result>
+       </action>
+       
+       <action name="download_*" method="{1}" class="action.DownloadAction">
+            <result name="success" type="stream">
+                <param name="contentType">application/octet-stream;charset=UTF-8</param>
+                <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                <param name="inputName">downloadFile</param>
+            </result>
+            
+			<result name="input" type="redirectAction">
+				<param name="actionName">/search_loginSearch.action</param>
+				<param name="message">${message}</param>
+				<param name="iflogin">${iflogin}</param>			
+			</result>
+			
+			<!-- 用来给预览时后下载 -->
+			<result name="login" type="redirectAction">
+				<param name="actionName">/search_present.action</param>
+				<param name="content">${fileName}</param>
+				<param name="position">${filePath}</param>
+				<param name="price">${price}</param>
+				<param name="iflogin">${iflogin}</param>
+			</result>
+            
+       </action>
+		
+    </package>
+	
+    <!-- Add packages here -->
+	<package name="teacher" namespace="/teacher" extends="struts-default">
+		<default-interceptor-ref name="paramsPrepareParamsStack"/>
+		<action name="course_*" class="action.teacher.CourseAction" method="{1}">
+            <result name="list">/teacher/teCourseMa.jsp</result>
+            <result name="input">/teacher/AECourse.jsp</result>
+        </action>
+        
+        <action name="home_*" class="action.teacher.HomeAction" method="{1}">
+            <result name="home">/teacher/teacherHome.jsp</result>
+            <result name="input">/teacher/teacherModify.jsp</result>
+        </action>
+        
+        <action name="courstu_*" class="action.teacher.CourStuAction" method="{1}">
+            <result name="list">/teacher/teStudentMa.jsp</result>
+            <result name="add">/teacher/addStudent.jsp</result>
+            <result name="input">/teacher/teStudentMa.jsp</result>
+            <result name="moreinfo">/teacher/teStudentMore.jsp</result>
+        </action>
+		
+		<action name="uploadFileLoad_*" class="action.teacher.UploadFileLoadAction" method="{1}">
+            <result name="load">/teacher/uploadPPT.jsp</result>
+        </action>
+		
+		<action name="pptMa_*" class="action.teacher.PPTMaAction" method="{1}">
+            <result name="list">/teacher/pptMaHome.jsp</result>
+            <result name="moreinfo">/teacher/pptMaMoreinfo.jsp</result>
+            <result name="edit">/teacher/pptMaEdit.jsp</result>
+        </action>
+        
+        <action name="hworkMa_*" class="action.teacher.HworkMaAction" method="{1}">
+            <result name="list">/teacher/teHworkMa.jsp</result>
+            <result name="moreinfo">/teacher/teHworkMoreinfo.jsp</result>
+            <result name="add">/teacher/teHworkAdd.jsp</result>
+        </action>
+		
+		<!-- 文件上传action -->
+        <action name="progress" class="action.uploadFilePro.FileAction" method="progress">
+			<result name="input">/teacher/teacherHome.jsp</result>
+		</action>
+		<action name="uploadfile" class="action.uploadFilePro.FileAction" method="uploadfile">
+			<result name="input">/teacher/teacherHome.jsp</result>
+		</action>
+		
+	</package>
+	
+	<package name="student" namespace="/student" extends="struts-default">
+		<default-interceptor-ref name="paramsPrepareParamsStack"/>
+		
+		<action name="stuppt_*" class="action.student.StuPptAction" method="{1}">
+            <result name="list">/student/stuPpt.jsp</result>
+            <result name="followList">/student/studentfollow.jsp</result>
+        </action>
+		
+        <action name="table_*" class="action.student.StuCourseAction" method="{1}">
+            <result name="list">/student/stCourseTable.jsp</result>
+            <result name="input">/student/stEditCourseTable.jsp</result>
+        </action>
+        
+        <action name="home_*" class="action.student.HomeAction" method="{1}">
+            <result name="home">/student/studentHome.jsp</result>
+            <result name="input">/student/studentModify.jsp</result>
+        </action>
+        
+        <action name="stuHwork_*" class="action.student.HworkAction" method="{1}">
+            <result name="unread">/student/homework/unRead.jsp</result>
+            <result name="list">/student/homework/allHwork.jsp</result>
+            <result name="moreinfo">/student/homework/moreinfo.jsp</result>
+        </action>
+        
+        <action name="pptMa_*" class="action.student.StuPPTMaAction" method="{1}">
+            <result name="list">/student/pptHome.jsp</result>
+            <result name="moreinfo">/student/pptMoreinfo.jsp</result>
+        </action>
+        
+        <action name="onekey_*" class="action.student.OneKeyLeadin" method="{1}">
+            <result name="list">/student/stCourseTable.jsp</result>
+            <result name="wrong">/student/stCourseTable.jsp</result>
+        </action>
+        
+	</package>
+	
+</struts>

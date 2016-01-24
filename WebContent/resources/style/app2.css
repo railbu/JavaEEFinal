@@ -1,0 +1,170 @@
+.row {
+	margin-left: 0px;
+	*zoom: 1
+}
+
+.row:after,.row:before {
+	display: table;
+	content: "";
+	line-height: 0
+}
+
+.row:after {
+	clear: both
+}
+
+.row-fluid {
+	width: 100%;
+	*zoom: 1
+}
+
+.row-fluid:after,.row-fluid:before {
+	display: table;
+	content: "";
+	line-height: 0
+}
+
+.row-fluid:after {
+	clear: both
+}
+
+.row-fluid [class*=span] {
+	display: block;
+	width: 100%;
+	min-height: 1px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	float: left;
+	margin-left: 2.127659574468085%;
+	*margin-left: 2.074468085106383%
+}
+
+.row-fluid [class*=span]:first-child {
+	margin-left: 0
+}
+
+.row-fluid .controls-row [class*=span]+[class*=span] {
+	margin-left: 2.127659574468085%
+}
+
+.centered {
+	text-align: center !important
+}
+
+.clearfix {
+	*zoom: 1
+}
+
+.row-fluid .span4 {
+	width: 23%;
+	*width: 23%
+}
+
+.hollow {
+	margin-bottom: 20px;
+	background-color: #fff;
+	border: 2px solid #ccc
+}
+
+.hollow--no-bg {
+	background-color: transparent
+}
+
+.card {
+	position: relative
+}
+
+.card img {
+	border-bottom: 2px solid #e6e6e6
+}
+
+.card h2 {
+	color: #1a1a1a;
+	font-size: 20px;
+	line-height: 22px;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0
+}
+
+.card h3 {
+	color: #1a1a1a;
+	font-size: 16px;
+	margin-top: -10px;
+	margin-bottom: 0
+}
+
+.card h4 {
+	color: #1a1a1a;
+	font-size: 16px;
+	margin-top: 0;
+	margin-bottom: 0
+}
+
+.card-small {
+	position: relative
+}
+
+.card-small h2 {
+	font-family: proxima-nova, sans-serif;
+	font-size: 16px;
+	line-height: 22px;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0
+}
+
+.card-small h4 {
+	font-size: 14px;
+	margin-top: 0;
+	margin-bottom: 0
+}
+
+#face {
+	width: 300px;
+	border: 1px solid #b4b4b4;
+	height: 280px;
+	margin: 0 0 0 50px;
+	background: #ffffff;
+}
+
+#face input {
+	background: url(images/faceclose.gif) no-repeat center;
+	margin: 0 0 0 140px;
+	float: left;
+	border: none;
+	cursor: pointer;
+	width: 30px;
+	height: 30px;
+}
+
+#facetitle {
+	font-weight: bold;
+	height: 30px;
+	width: 292px;
+	margin: 3px 0 0 3px;
+}
+
+#facetitle span {
+	float: left;
+	color: #ffffff;
+	display: block;
+	height: 30px;
+	line-height: 30px;
+	width: 100px;
+	margin: 0 0 0 10px;
+}
+
+#faceul {
+	margin: 0 0 0 0px;
+	width: 800px;
+}
+
+#faceul li {
+	float: left;
+	margin: 5px 10px 0 4px;
+	height: auto;
+	width: 23%;
+	list-style-type:none;
+}
+

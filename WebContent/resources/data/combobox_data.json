@@ -1,0 +1,38 @@
+[{
+	"id":0,
+	"text":"Default",
+	"icon":"0.png",
+	"selected":true
+},{
+	"id":1,
+	"text":"Heart",
+	"icon":"1.png"
+},{
+	"id":2,
+	"text":"Flower",
+	"icon":"2.png"
+},{
+	"id":3,
+	"text":"Cup",
+	"icon":"3.png"
+},{
+	"id":4,
+	"text":"Man",
+	"icon":"4.png"
+},{
+	"id":5,
+	"text":"Sky",
+	"icon":"5.png"
+},{
+	"id":6,
+	"text":"Noon",
+	"icon":"6.png"
+},{
+	"id":7,
+	"text":"Sea",
+	"icon":"7.png"
+},{
+	"id":8,
+	"text":"Sun",
+	"icon":"8.png"
+}]
